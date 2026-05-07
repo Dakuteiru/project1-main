@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreDonateRequest;
 use App\Http\Requests\UpdateDonateRequest;
-use App\Models\Donate;
+use App\Models\Gacha;
 
 class ProductController extends Controller
 {
@@ -14,8 +14,10 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::quuery()
-            ->paginate(25);
+        $products = Gacha::all();
+
+       // $products = Gacha::query()
+         //   ->paginate(25);
 
         return view('products.index', compact('products'));
     }
@@ -33,7 +35,15 @@ class ProductController extends Controller
      */
     public function store(StoreDonateRequest $request)
     {
-        //
+        $request->validate([
+            "name" => "required|string"
+        ]);
+
+        Gacha::create(['name' => $request->name]);
+        
+        return redirect()
+            ->route('products.index')
+            ->with('success');
     }
 
     /**
@@ -41,7 +51,6 @@ class ProductController extends Controller
      */
     public function show(Donate $donate)
     {
-        Product::create($request->all());
         return redirect()->route('products.create');
     }
 

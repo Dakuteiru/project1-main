@@ -1,24 +1,19 @@
 @extends('layout')
 
 @section('content')
-
-@endsection
-<from action="{{route('product.store') }}">
+<form action="{{ route('products.store') }}" method="POST">
     @csrf
-    @method('PUT')
-</from>
+    
+    <label>
+        Название:
+        <input name="name"/>
+    </label>
 
-<label>
-    Название:
-    <input name="name" />
-</label>
+    <label>
+        Описание:
+        <textarea name="description"></textarea>
+    </label>
 
-<label>
-    Описание:
-    <input name="description" />
-</label>
-
-<input type="submit" value="подтвердить"/>
-@push('scripts')
-
-@endpush
+    <input type="submit" value="подтвердить"/>
+</form>
+@endsection

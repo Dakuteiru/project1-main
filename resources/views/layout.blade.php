@@ -12,6 +12,7 @@
     </header>
 
     <main>
+        @yield('content')
     </main>
     <footer>
         <p>© 2024 Мой сайт. Все права защищены.</p>

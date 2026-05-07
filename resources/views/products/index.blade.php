@@ -1,9 +1,20 @@
 @extends('layout')
 
 @section('content')
-<oi>
-    @for($i=0; $i<10; $i++)
-    <li>{{ $i }}</li>
-@endfor
-</oi>
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+        </tr>
+</thead>
+<tbody>
+    @foreach ($products as $product)
+    <tr>
+        <td>{{ $product->id }}</td>
+        <td>{{ $product->name }}</td>
+    </tr>
+    @endforeach
+</tbody>
+</table>
 @endsection

@@ -22,10 +22,10 @@ return new class extends Migration
             $table->bigInteger('gacha_id');
 
             $table->foreign('gacha_id')
-            ->references('id')
-            ->on('gachas')
-            ->cascadeOnUpdate()
-            ->nullOnDelete();
+                ->references('id')
+                ->on('gachas')
+                ->cascadeOnUpdate()
+                ->nullOnDelete();
 
              $table->index('gacha_id');
 

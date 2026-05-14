@@ -1,6 +1,7 @@
 @extends('layout')
 
 @section('content')
+
 <form action="{{ route('products.store') }}" method="POST">
     @csrf
     

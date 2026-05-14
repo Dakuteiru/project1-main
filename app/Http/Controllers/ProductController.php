@@ -49,32 +49,42 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Donate $donate)
+    public function show(Gacha $product)
     {
-        return redirect()->route('products.create');
+        return view('products.show', compact('product'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Donate $donate)
+    public function edit(Gacha $product)
     {
-        //
+        return view('products.edit', compact('product'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateDonateRequest $request, Donate $donate)
+    public function update(UpdateDonateRequest $request, Gacha $product)
     {
-        //
+         $request->validate([
+            "name" => "required|string"
+        ]);
+
+        $product->updateOrFail(['name' => $request->name]);
+        return redirect()
+            ->route('products.index')
+            ->with('success');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Donate $donate)
+    public function destroy(Gacha $product)
     {
-        //
+        $product->delete();
+          return redirect()
+            ->route('products.index')
+            ->with('success');
     }
 }

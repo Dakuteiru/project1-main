@@ -15,6 +15,6 @@ Route::get('donates',[DonateController::class,'index'])->name('donates.index');
 Route::post('donates',[DonateController::class, 'store'])->name('donates.store');
 Route::get('donates/create',[DonateController::class, 'create'])->name('donates.create');//create
 Route::get('donates/{donate}', [DonateController::class, 'show'])->name('donates.show');//show
-Route::put('donates/{donate}/edit',[DonateController::class, 'edit'])->name('donates.edit');//edit
-Route::put('donates/{donate}', [DonateController::class, 'update'])->name('donates.update');//update
+Route::get('donates/{donate}/edit',[DonateController::class, 'edit'])->name('donates.edit');//edit
+Route::post('donates/{donate}', [DonateController::class, 'update'])->name('donates.update');//update
 Route::delete('donates/{donate}',[DonateController::class,'destroy'])->name('donates.destroy');//destroy

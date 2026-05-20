@@ -1,6 +1,16 @@
 @extends('layout')
 
 @section('content')
+@if ($errors->any())
+<div style="background-color: red; color:blanchedalmond;">
+    <ul>
+        @foreach ( $errors ->all() as $error )
+            <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
+    
 
 <form action="{{ route('products.store') }}" method="POST">
     @csrf

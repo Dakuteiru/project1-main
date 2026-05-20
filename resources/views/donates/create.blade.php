@@ -13,7 +13,7 @@
         Описание:
         <textarea name="description"></textarea>
     </label>
-    <select name="product_id">
+    <select name="gacha_id">
         @foreach ($products as $product)
             <option value="{{ $product->id }}">{{ $product->name}}</option>
             

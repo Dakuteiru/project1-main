@@ -1,6 +1,11 @@
 @extends('layout')
 
 @section('content')
+@if (session('success'))
+<div style="background-color: green; color:blue;">
+    {{ session('success') }}
+</div>
+@endif
  <a href="{{ route('products.create')  }}">создать товар</a>
 <table>
     <thead>

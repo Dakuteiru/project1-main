@@ -1,6 +1,7 @@
 @extends('layout')
 
 @section('content')
+<a href="{{ route('donates.create')  }}">создать донат</a>
 <table>
     <thead>
         <tr>

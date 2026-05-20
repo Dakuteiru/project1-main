@@ -24,7 +24,7 @@ class DonateController extends Controller
 
     /**
      * Show the form for creating a new resource.
-     */
+     */ 
     public function create()
     {
         $products = Gacha::all();
@@ -38,7 +38,7 @@ class DonateController extends Controller
     {
          $request->validate([
             "name" => "required|string",
-            "gacha_id" => "required|exist:gachas,id"    
+            "gacha_id" => "required|exists:gachas,id"    
         ]);
 
         Donate::create([

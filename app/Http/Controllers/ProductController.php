@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreDonateRequest;
+use App\Http\Requests\StoreGachaRequest;
 use App\Http\Requests\UpdateDonateRequest;
 use App\Models\Gacha;
 
@@ -33,17 +33,21 @@ class ProductController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreDonateRequest $request)
+    public function store(StoreGachaRequest $request)
     {
-        $request->validate([
-            "name" => "required|string"
-        ]);
-
-        Gacha::create(['name' => $request->name]);
-        
+       try
+        {
+            Gacha::create(['name' => $request->name]);
+        }
+        catch(Exception $e)
+        {
+            return back()
+            ->withInput()
+            ->with("error", $e->getMassege());
+        }
         return redirect()
             ->route('products.index')
-            ->with('success');
+            ->with('success', 'result was success');
     }
 
     /**

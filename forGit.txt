@@ -1,2 +1,4 @@
 git config --global user.email "89211254600ek@gmail.com"
 git config --global user.name "Evgenie"
+php artisan db:seed --class=GachaSeeder
+ php artisan migrate

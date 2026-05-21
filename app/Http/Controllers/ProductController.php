@@ -78,7 +78,7 @@ class ProductController extends Controller
         $product->updateOrFail(['name' => $request->name]);
         return redirect()
             ->route('products.index')
-            ->with('success');
+            ->with('success', 'result was success, you updated this good so good');
     }
 
     /**
@@ -89,6 +89,6 @@ class ProductController extends Controller
         $product->delete();
           return redirect()
             ->route('products.index')
-            ->with('success');
+            ->with('warning','result was success, you determinate it');
     }
 }

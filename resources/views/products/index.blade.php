@@ -1,6 +1,13 @@
 @extends('layout')
 
 @section('content')
+
+@if (session('warning'))
+<div style="background-color: yellow; color:black;">
+    {{ session('warning') }}
+</div>
+@endif
+
 @if (session('success'))
 <div style="background-color: green; color:blue;">
     {{ session('success') }}

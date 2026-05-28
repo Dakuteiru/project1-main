@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreGachaRequest;
 use App\Http\Requests\UpdateDonateRequest;
 use App\Models\Gacha;
+use Illuminate\Routing\Attributes\Controllers\Authorize;
 
 class ProductController extends Controller
 {
@@ -25,6 +26,7 @@ class ProductController extends Controller
     /**
      * Show the form for creating a new resource.
      */
+    #[Authorize('create', App\Models\Gacha::class)]
     public function create()
     {
         return view('products.create');
@@ -33,6 +35,7 @@ class ProductController extends Controller
     /**
      * Store a newly created resource in storage.
      */
+
     public function store(StoreGachaRequest $request)
     {
        try

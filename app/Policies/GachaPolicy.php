@@ -29,7 +29,7 @@ class GachaPolicy
      */
     public function create(User $user): bool
     {
-        return false;
+        return $user->hasPermissionTo('admin.*');
     }
 
     /**
@@ -37,7 +37,7 @@ class GachaPolicy
      */
     public function update(User $user, Gacha $gacha): bool
     {
-        return false;
+        return $user->hasPermissionTo('admin.gacha.update');
     }
 
     /**

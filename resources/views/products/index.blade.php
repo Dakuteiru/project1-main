@@ -13,7 +13,9 @@
     {{ session('success') }}
 </div>
 @endif
+@can('create', App\Models\Gacha::class)
  <a href="{{ route('products.create')  }}">создать товар</a>
+@endcan
 <table>
     <thead>
         <tr>
@@ -29,7 +31,9 @@
         <td>{{ $product->name }}</td>
         <td>
             <a href="{{ route('products.show', $product)  }}">детали</a>
+            @can('update', $product)
             <a href="{{ route('products.edit', $product)  }}">редактирование</a>
+            @endcan
             <form  action="{{ route('products.destroy', $product)  }}" method="POST">
                 @csrf   
                 @method("DELETE")

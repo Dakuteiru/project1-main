@@ -12,6 +12,7 @@
 @endif
     
 
+@can('create', App\Models\Gacha::class)
 <form action="{{ route('products.store') }}" method="POST">
     @csrf
     
@@ -27,4 +28,5 @@
 
     <input type="submit" value="подтвердить"/>
 </form>
+@endcan
 @endsection

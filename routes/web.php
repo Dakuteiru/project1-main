@@ -17,3 +17,8 @@ Route::get('donates/{donate}', [DonateController::class, 'show'])->name('donates
 Route::get('donates/{donate}/edit',[DonateController::class, 'edit'])->name('donates.edit');//edit
 Route::put('donates/{donate}', [DonateController::class, 'update'])->name('donates.update');//update
 Route::delete('donates/{donate}',[DonateController::class,'destroy'])->name('donates.destroy');//destroy
+
+
+Route::put('/post/{post}', function (Post $post) {
+    // The current user may update the post...
+})->middleware('can:update,post');
